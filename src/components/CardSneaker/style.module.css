@@ -1,0 +1,67 @@
+.card {
+  position: relative;
+  border-radius: 10px;
+  padding: 30px 20px;
+}
+
+.product_block {
+  margin: 0 auto;
+}
+
+.product_block img {
+  margin: 0 auto;
+  height: auto;
+}
+
+.product_block:hover .add_block {
+  opacity: 1;
+}
+
+.add_block {
+  position: absolute;
+  top: 110px;
+  left: 0;
+  display: flex;
+  align-items: first baseline;
+
+  gap: 40px;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.add_block img {
+  width: 100%;
+  height: auto;
+}
+
+.card p {
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: left;
+}
+
+.info {
+  height: 53px;
+}
+.product_block h2,
+.product_block p {
+  color: var(--text);
+}
+
+.successMessage {
+  color: rgba(72, 66, 131, 1);
+  position: absolute;
+  top: -50px;
+  left: -110px;
+  font-size: 18px;
+
+  text-align: center;
+}
+
+@media screen and (max-width: 825px) {
+  .card {
+    max-width: 500px;
+  }
+}
