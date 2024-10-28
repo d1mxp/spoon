@@ -4,15 +4,15 @@ import style from "./style.module.css";
 import CardsSneaker from "../CardsSneaker";
 
 const SectionSneakers = () => {
-  const [filterFunction, setFilterFunction] = useState<
-    () => (sneakers: any[]) => any[]
-  >(() => (sneakers) => sneakers);
+  const [, setFilterFunction] = useState<() => (sneakers: any[]) => any[]>(
+    () => (sneakers) => sneakers
+  );
   const [gender, setGender] = useState<string>("");
 
   return (
     <section className="container" id="catalog">
       <div className={style.container}>
-        <h2>Каталог</h2>
+        <h2 id="catalog">Каталог</h2>
         <div className={style.sneakers_block}>
           <Search setFilterValue={setFilterFunction} setGender={setGender} />
           <CardsSneaker

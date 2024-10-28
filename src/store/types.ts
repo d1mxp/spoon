@@ -6,18 +6,19 @@ export interface ITeam {
 }
 
 export interface ISneakers {
-  color: string;
-  compound: string;
-  country: string;
-  description: string;
-  gender: string;
-  id: number;
-  imgUrl: string;
-  inStock: number;
-  oldPrice: number;
-  price: number;
-  sizes: number[];
-  stars: number;
-  title: string;
-  vendorCode: string;
+  color?: string;
+  compound?: string;
+  country?: string;
+  description?: string;
+  gender?: string;
+  id?: number;
+  imgUrl?: string;
+  inStock?: number;
+  oldPrice?: number;
+  price?: number;
+  sizes?: number[];
+  stars?: number;
+  title?: string;
+  vendorСode?: string;
+  selectedSize: number;
 }

@@ -15,7 +15,7 @@ interface IProps {
   setIsBasketOpen: () => void;
 }
 
-const Header: FC<IProps> = ({ isOpen, setIsOpen, setIsBasketOpen }) => {
+const Header: FC<IProps> = ({ setIsOpen, setIsBasketOpen }) => {
   const basketLength = useSelector<RootState, number>(
     (state) => state.basket.data.length
   );
@@ -41,7 +41,7 @@ const Header: FC<IProps> = ({ isOpen, setIsOpen, setIsBasketOpen }) => {
 
           <div onClick={() => setIsOpen()}>
             <button className={style.cart} onClick={() => setIsBasketOpen()}>
-              Корзина <img src="src/images/basket.svg" alt="Basket" />
+              Корзина <img src="/images/basket.svg" alt="Basket" />
               <span className={style.counter}>{basketLength}</span>
             </button>
           </div>
@@ -54,7 +54,11 @@ const Header: FC<IProps> = ({ isOpen, setIsOpen, setIsBasketOpen }) => {
             Мы продаем кроссовки брендов Nike, Adidas, Puma, Reebok, Converse и
             многие другие по низким ценам
           </p>
-          <Button text="Перейти к покупкам" onClick={handleClick} />
+          <Button
+            text="Перейти к покупкам"
+            onClick={handleClick}
+            type={"button"}
+          />
         </div>
       </header>
     </div>

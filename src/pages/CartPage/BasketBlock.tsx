@@ -21,13 +21,15 @@ const BasketBlock: FC<IProps> = ({ setIsBasketOpen }) => {
       <div className="container">
         <div className="back" onClick={setIsBasketOpen}></div>
         <div className="basket">
-          <BasketList isBasketOpen />
+          <BasketList isBasketOpen items={[]} />
           <InfoStyle>
-            <ButtonRed
-              type="button"
-              onClick={handleGoToBasket}
-              text={"Перейти в корзину"}
-            />
+            <div className="button">
+              <ButtonRed
+                type="button"
+                onClick={handleGoToBasket}
+                text={"Перейти в корзину"}
+              />
+            </div>
           </InfoStyle>
         </div>
       </div>
@@ -59,10 +61,11 @@ const BasketBlockStyle = styled.div`
     position: absolute;
     z-index: 5;
     right: 20px;
-    top: 0;
+    right: 10px;
+    // left: 0;
     box-shadow: 0px -4px 10px 0px rgba(0, 13, 84, 0.1);
     background: rgb(255, 255, 255);
-    min-width: 480px;
+    min-width: 320px;
     padding-top: 10px;
     max-height: 520px;
   }
@@ -88,29 +91,11 @@ const InfoStyle = styled.div`
     font-weight: 700;
     line-height: 20px;
   }
-`;
-const BtnStyle = styled.button`
-  color: rgb(255, 255, 255);
-  font-family: "Intro";
-  font-size: 16px;
-  line-height: 16px;
-  border-radius: 4px;
-  background: var(--accent);
-  padding: 22px 47px;
-  width: fit-content;
 
-  &:hover {
-    background: var(--accent-hover);
-  }
-
-  &:active {
-    background: var(--accent-active);
-  }
-
-  &:disabled {
-    background-color: var(--accent-hover);
-    opacity: 0.8;
-    cursor: auto;
+  @media (max-width: 400px) {
+    .button {
+      margin: 0 auto;
+    }
   }
 `;
 

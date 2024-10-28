@@ -82,6 +82,7 @@ const CardsSneaker: FC<IProps> = ({ gender }) => {
           text="Показать еще"
           onClick={loadMore}
           disabled={limit >= sneakers.length}
+          type={"button"}
         />
       )}
     </div>

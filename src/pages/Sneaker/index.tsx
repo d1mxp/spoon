@@ -3,12 +3,15 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { Sneaker } from "../../types/sneaker";
 import style from "./style.module.css";
 import ButtonRed from "../../components/Buttons/ButtonRed/button";
-import { ISneakers, postBasket } from "../../store/slices/basketSlice";
+import { postBasket } from "../../store/slices/basketSlice";
 import { useDispatch } from "react-redux";
+import { ISneakers } from "../../store/types";
+import { AppDispatch } from "../../store/store";
 
 const SneakerPage = () => {
   const params = useParams();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
+
   const navigate = useNavigate(); // Хук для навигации
   const [sneakerData, setSneakerData] = useState<Sneaker | null>(null);
   const [selectedSize, setSelectedSize] = useState<number | null>(null);
@@ -78,32 +81,38 @@ const SneakerPage = () => {
                 </div>
                 <h2 className={style.title}>{sneakerData.title}</h2>
                 <img
-                  src="/src/assets/stars.png"
+                  src="./src/assets/stars.png"
                   alt=""
                   className={style.stars}
                 />
                 <p className={style.size}>Выберите размер:</p>
                 <div className={style.sizeOptions}>
-                  {sneakerData.sizes.map((size) => (
-                    <button
-                      key={size}
-                      className={`${style.sizeButton} ${
-                        selectedSize === size ? style.selected : ""
-                      }`}
-                      onClick={() => handleSizeSelect(size)}
-                    >
-                      <p>{size}</p>
-                    </button>
-                  ))}
+                  {sneakerData.sizes &&
+                    Array.isArray(sneakerData.sizes) &&
+                    sneakerData.sizes.map((size) => (
+                      <button
+                        key={size}
+                        className={`${style.sizeButton} ${
+                          selectedSize === size ? style.selected : ""
+                        }`}
+                        onClick={() => handleSizeSelect(size)}
+                      >
+                        <p>{size}</p>
+                      </button>
+                    ))}
                 </div>
                 <span className={style.price}>{sneakerData.price}</span>
                 <span className={style.priceold}>{sneakerData.oldPrice}</span>
                 <div className={style.button}>
-                  <ButtonRed text="Заказать" onClick={handleAddToBasket} />
+                  <ButtonRed
+                    text="Заказать"
+                    onClick={handleAddToBasket}
+                    type={"button"}
+                  />
                 </div>
                 <p className={style.text}>
                   <img
-                    src="/src/assets/Vector.svg"
+                    src="/images/Vector.png"
                     alt=""
                     style={{ width: "15px", marginRight: "5px" }}
                   />
@@ -111,7 +120,7 @@ const SneakerPage = () => {
                 </p>
                 <p className={style.text}>
                   <img
-                    src="/src/assets/Vector.png"
+                    src="/images/Vector.png"
                     alt=""
                     style={{ width: "15px", marginRight: "5px" }}
                   />
@@ -119,7 +128,7 @@ const SneakerPage = () => {
                 </p>
                 <p className={style.text}>
                   <img
-                    src="/src/assets/Vector.svg"
+                    src="/images/Vector.png"
                     alt=""
                     style={{ width: "15px", marginRight: "5px" }}
                   />

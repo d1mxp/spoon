@@ -5,17 +5,18 @@ import Form from "../../components/Form/index.tsx";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/store.ts";
-import { clearBasket, ISneakers } from "../../store/slices/basketSlice.ts";
+import { clearBasket } from "../../store/slices/basketSlice.ts";
+import { ISneakers } from "../../store/types.ts";
 
 interface IProps {
-  setIsBasketOpen: () => void;
+  setIsBasketOpen?: () => void;
   isBasketOpen?: boolean;
-  item: ISneakers;
+  items?: ISneakers[];
 }
 
 const Basket: FC<IProps> = ({ setIsBasketOpen, isBasketOpen }) => {
   const [orderNumber, setOrderNumber] = useState<number | null>(null); // Состояние для хранения номера заказа
-  const items = useState<any[]>([]); // Состояние для хранения списка товаров
+  const [items] = useState<ISneakers[]>([]); // Состояние для хранения списка товаров
   const navigate = useNavigate(); // Инициализируем useNavigate
   const dispatch = useDispatch(); // Инициализируем useDispatch
   const [isOpen, setIsOpen] = useState(isBasketOpen);
@@ -38,7 +39,7 @@ const Basket: FC<IProps> = ({ setIsBasketOpen, isBasketOpen }) => {
 
   // Функция для вычисления общей суммы заказа
   const calculateTotalPrice = useSelector<RootState, number>((state) =>
-    state.basket.data.reduce((total, item) => total + item.price, 0)
+    state.basket.data.reduce((total, item) => total + (item.price ?? 0), 0)
   );
 
   const handleButtonClick = () => {
@@ -56,7 +57,7 @@ const Basket: FC<IProps> = ({ setIsBasketOpen, isBasketOpen }) => {
     (state) => state.basket.data.length
   );
 
-  const arrowStyle = {
+  const arrowStyle: React.CSSProperties = {
     position: "relative",
     left: "8px",
     top: "4px",
@@ -90,7 +91,7 @@ const Basket: FC<IProps> = ({ setIsBasketOpen, isBasketOpen }) => {
             >
               Состав заказа
               <img
-                src="src/assets/down-arrow.svg"
+                src="/icons/down-arrow.svg"
                 alt={isOpen ? "Скрыть состав заказа" : "Показать состав заказа"}
                 style={{
                   ...arrowStyle,
@@ -162,6 +163,7 @@ const BasketBlockStyle = styled.div`
     padding: 30px 0 17px 30px;
   }
   p {
+    padding-left: 10px;
     font-family: Intro Book;
     font-size: 14px;
     font-weight: 400;
@@ -186,11 +188,16 @@ const BasketBlockStyle = styled.div`
   .basket {
     position: relative;
     z-index: 5;
-    top: -55vh;
+    top: -450px;
 
     background: rgba(255, 255, 255, 1);
     min-width: 580px;
-    // max-height: 100vh;
+  }
+
+  @media (max-width: 600px) {
+    .basket {
+      min-width: 100%;
+    }
   }
 `;
 

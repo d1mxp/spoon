@@ -3,8 +3,6 @@ import { ThemeContext } from "../../App.tsx";
 import ButtonLght from "../Buttons/ButtonLight/button.tsx";
 import style from "./style.module.css";
 import "swiper/swiper-bundle.css"; // Импортируйте стили Swiper
-
-// Import Swiper styles
 import "swiper/css";
 
 const SectionSelection = ({ onNext }: { onNext: () => void }) => {
@@ -28,15 +26,11 @@ const SectionSelection = ({ onNext }: { onNext: () => void }) => {
 
         <div className={style.selection}>
           <div className={style.sneakers}>
-            <img src="  src/images/photo-sneaker.jpg" alt="Sneaker" />
+            <img src="/images/photo-sneaker.jpg" alt="Sneaker" />
 
             <div className={style.inputs}>
               <label>
-                <input
-                  className={style.check_input}
-                  type="checkbox"
-                  //    onChange={() => handleFilterChange()}
-                />
+                <input className={style.check_input} type="checkbox" />
                 <span className={style.check_style}></span>
                 кеды
               </label>
@@ -44,15 +38,11 @@ const SectionSelection = ({ onNext }: { onNext: () => void }) => {
           </div>
 
           <div className={style.sneakers}>
-            <img src="src/images/photo-sneaker.jpg" alt="Sneaker" />
+            <img src="/images/photo-sneaker.jpg" alt="Sneaker" />
 
             <div className={style.inputs}>
               <label>
-                <input
-                  className={style.check_input}
-                  type="checkbox"
-                  //    onChange={() => handleFilterChange()}
-                />
+                <input className={style.check_input} type="checkbox" />
                 <span className={style.check_style}></span>
                 кеды
               </label>
@@ -60,15 +50,11 @@ const SectionSelection = ({ onNext }: { onNext: () => void }) => {
           </div>
 
           <div className={style.sneakers}>
-            <img src="src/images/photo-sneaker.jpg" alt="Sneaker" />
+            <img src="/images/photo-sneaker.jpg" alt="Sneaker" />
 
             <div className={style.inputs}>
               <label>
-                <input
-                  className={style.check_input}
-                  type="checkbox"
-                  //    onChange={() => handleFilterChange()}
-                />
+                <input className={style.check_input} type="checkbox" />
                 <span className={style.check_style}></span>
                 кеды
               </label>
@@ -76,15 +62,11 @@ const SectionSelection = ({ onNext }: { onNext: () => void }) => {
           </div>
 
           <div className={style.sneakers}>
-            <img src="  src/images/photo-sneaker.jpg" alt="Sneaker" />
+            <img src="/images/photo-sneaker.jpg" alt="Sneaker" />
 
             <div className={style.inputs}>
               <label>
-                <input
-                  className={style.check_input}
-                  type="checkbox"
-                  //    onChange={() => handleFilterChange()}
-                />
+                <input className={style.check_input} type="checkbox" />
                 <span className={style.check_style}></span>
                 кеды
               </label>
@@ -92,15 +74,11 @@ const SectionSelection = ({ onNext }: { onNext: () => void }) => {
           </div>
 
           <div className={style.sneakers}>
-            <img src="src/images/photo-sneaker.jpg" alt="Sneaker" />
+            <img src="/images/photo-sneaker.jpg" alt="Sneaker" />
 
             <div className={style.inputs}>
               <label>
-                <input
-                  className={style.check_input}
-                  type="checkbox"
-                  //    onChange={() => handleFilterChange()}
-                />
+                <input className={style.check_input} type="checkbox" />
                 <span className={style.check_style}></span>
                 кеды
               </label>
@@ -108,15 +86,11 @@ const SectionSelection = ({ onNext }: { onNext: () => void }) => {
           </div>
 
           <div className={style.sneakers}>
-            <img src="src/images/photo-sneaker.jpg" alt="Sneaker" />
+            <img src="/images/photo-sneaker.jpg" alt="Sneaker" />
 
             <div className={style.inputs}>
               <label>
-                <input
-                  className={style.check_input}
-                  type="checkbox"
-                  //    onChange={() => handleFilterChange()}
-                />
+                <input className={style.check_input} type="checkbox" />
                 <span className={style.check_style}></span>
                 кеды
               </label>
@@ -126,10 +100,7 @@ const SectionSelection = ({ onNext }: { onNext: () => void }) => {
 
         <div className={style.step}>
           <span className={style.counter}>1 из 3</span>
-          <ButtonLght
-            text="Следующий шаг"
-            onClick={onNext} // Используем переданную функцию
-          />
+          <ButtonLght text="Следующий шаг" onClick={onNext} />
         </div>
       </div>
     </section>

@@ -4,7 +4,8 @@ import style from "./style.module.css";
 import { ThemeContext } from "../../App";
 
 const SectionContacts = () => {
-  const { theme } = useContext(ThemeContext);
+  const context = useContext(ThemeContext);
+  const theme = context?.theme;
   const backgroundStyle =
     theme === "dark"
       ? { background: "none" }
@@ -19,7 +20,7 @@ const SectionContacts = () => {
           <div className={style.contact}>
             <h3>Главный офис </h3>
             <div className={style.tooltip}>
-              <img src="src/assets/Tooltip.png" alt="Tooltip" />
+              <img src="/icons/Tooltip.png" alt="Tooltip" />
             </div>
             <p>
               <a href="tel:+78007898989">+7 800 789 89 89</a>
@@ -35,8 +36,20 @@ const SectionContacts = () => {
               г. Санкт-Петербург, Комсомольская, 43 к1
             </p>
             <div className={style.social_media}>
-              <img src="src/assets/VK.svg" alt="icon VK" />
-              <img src="src/assets/Instagram.svg" alt="icon Instagram" />
+              <a
+                href="https://vk.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="/icons/VK.svg" alt="icon VK" />
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="/icons/Instagram.svg" alt="icon Instagram" />
+              </a>
             </div>
           </div>
 

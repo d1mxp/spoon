@@ -4,8 +4,9 @@ import styled from "styled-components";
 import { Sneaker } from "../../types/sneaker";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { ISneakers, postBasket } from "../../store/slices/basketSlice";
+import { postBasket } from "../../store/slices/basketSlice";
 import { AppDispatch } from "../../store/store";
+import { ISneakers } from "../../store/types";
 
 type Props = {
   data: Sneaker;
@@ -35,12 +36,12 @@ const CardSneaker: FC<Props> = ({ item, data }) => {
           <p>{data.price} p</p>
           <div className={style.add_block}>
             <Link to={`/sneaker/${data.id}`}>
-              <img src="src/assets/View_product.png" alt="View button" />
+              <img src="/icons/View_product.svg" alt="View button" />
             </Link>
 
             <div className={isOpenModal ? "modal modal-open" : "modal"}>
               <div className="add" onClick={handleAddToBasket}>
-                <img src="src/assets/Add_cart.png" alt="Add to basket" />
+                <img src="/icons/Add_cart.svg" alt="Add to basket" />
               </div>
 
               {isAdded && (
